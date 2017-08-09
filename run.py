@@ -4,4 +4,5 @@ def main():
     bot.run()
 
 if __name__ == "__main__":
+    pring('lets go febreze')
     main()
