@@ -4,5 +4,5 @@ def main():
     bot.run()
 
 if __name__ == "__main__":
-    print 'lets go febreze'
+    print('lets go febreze') 
     main()
