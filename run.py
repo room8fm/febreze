@@ -11,10 +11,10 @@ if __name__ == "__main__":
 def what(message):
     message.reply('Typescript')
 
-@listen_to('言語')
-def iine(message):
+@listen_to('.*言語.*')
+def langage_ts(message):
     message.send('Typescriptが一番いいに決まってるだろ')
 
-@listen_to('型')
-def iine(message):
-    message.send('型安全')
+@listen_to('.*型.*')
+def type_ts(message):
+    message.send('Typescriptなら型安全が手に入るんだぜ')
