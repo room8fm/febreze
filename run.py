@@ -13,8 +13,8 @@ def what(message):
 
 @listen_to('言語')
 def iine(message):
-    message.react('Typescriptが一番いいに決まってるだろ')
+    message.send('Typescriptが一番いいに決まってるだろ')
 
 @listen_to('型')
 def iine(message):
-    message.react('型安全')
+    message.send('型安全')
