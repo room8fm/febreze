@@ -1,14 +1,6 @@
 from slackbot.bot import listen_to
 from slackbot.bot import respond_to
 
-usernames = {}
-
-@respond_to('callme(.+)')
-def callme_what(message):
-    user_id = message.body['user']
-    if user_id in usernames:
-
-
 @respond_to('.*好きな.*言語.*？.*')
 def which_language(message):
     message.reply('Typescript')

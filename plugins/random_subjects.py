@@ -13,8 +13,6 @@ def add_subjects(message, words):
     not_registered = []
     registered = []
     user_id = message.body['user']
-    print(message.keys())
-    print(message.body)
 
     for word in words.split():
         if (word in subjects):
