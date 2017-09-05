@@ -8,7 +8,7 @@ import os
 slack = Slacker(os.environ['SLACKBOT_API_TOKEN'])
 membersDict = {}
 
-@listen_to('誰かに?[やって|お願い|助けて|手伝って].+')
+@listen_to('[誰|だれ]か.*[やって|お願い|助けて|手伝って].+')
 def assign_someone(message):
     global membersDict
     senderId = message.body['user']
