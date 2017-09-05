@@ -3,7 +3,7 @@ from slackbot.bot import listen_to
 import requests
 import os
 
-TOKEN = os.environ('SLACKBOT_API_TOKEN')
+TOKEN = os.environ['SLACKBOT_API_TOKEN']
 
 @listen_to('誰かに[やって|お願い].+')
 def assign_someone(message):
