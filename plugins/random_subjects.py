@@ -3,10 +3,6 @@ from slackbot.bot import listen_to
 from datetime import datetime
 import random
 
-@respond_to('.*好きな.*言語.*？.*')
-def what(message):
-    message.reply('Typescript')
-
 subjects = {}
 pick_candidates = []
 
@@ -17,7 +13,7 @@ def add_subjects(message, words):
     not_registered = []
     registered = []
     user_id = message.body['user']
-    print(message)
+    print(message.keys())
     print(message.body)
 
     for word in words.split():
@@ -38,19 +34,7 @@ def add_subjects(message, words):
     message.react('ok_woman')
     message.reply(reply)
 
-@listen_to('お題候補')
-def show_subjects(message):
-    global subjects
-    message.react('ok_woman')
-
-    count = len(subjects)
-    reply = 'お題はないよー'
-
-    if (count > 1):
-        reply = 'お題は' + str(len(subjects)) + '個あります。\n```' + ', '.join(subjects) + '```'
-    message.reply(reply)
-
-@listen_to('^ランダムお題([0-9]+)?$')
+@listen_to('^お題([0-9]+)?$')
 def pick_subjects(message, number):
     global pick_candidates
     global subjects
@@ -69,7 +53,19 @@ def pick_subjects(message, number):
 
     message.reply(reply)
 
-@listen_to('^ランダムお題リセット$')
+@listen_to('お題候補')
+def show_subjects(message):
+    global subjects
+    message.react('ok_woman')
+
+    count = len(subjects)
+    reply = 'お題はないよー'
+
+    if (count > 1):
+        reply = 'お題は' + str(len(subjects)) + '個あります。\n```' + ', '.join(subjects) + '```'
+    message.reply(reply)
+
+@listen_to('^お題リセット$')
 def reset_subjects(message):
     global pick_candidates
     pick_candidates = []
