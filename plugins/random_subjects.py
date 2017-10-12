@@ -12,7 +12,7 @@ channel = '#room_febreze'
 
 sps = SlackPinnedStorage(token, identifier, channel)
 
-subjects = sps.get()
+subjects = sps.get() or {}
 pick_candidates = []
 
 @respond_to('お題:(.*)')
