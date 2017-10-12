@@ -1,9 +1,16 @@
+from slack_pinned_storage import SlackPinnedStorage
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 from datetime import datetime
 import random
 
-subjects = {}
+token = os.environ['SLACKAPP_API_TOKEN']
+identifier = 'febrezeSubjects'
+channel = '#room_febreze'
+
+sps = SlackPinnedStorage(token, identifier, channel)
+
+subjects = sps.get()
 pick_candidates = []
 
 @respond_to('お題:(.*)')
@@ -24,6 +31,7 @@ def add_subjects(message, words):
     reply = ''
     if (registered):
         reply += 'お題、承り！！！\n```' + ', '.join(registered) + '```'
+        sps.set(subjects)
     if (registered and not_registered):
         reply += '\n'
     if (not_registered):
