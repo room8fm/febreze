@@ -2,6 +2,8 @@ from slack_pinned_storage import SlackPinnedStorage
 from slackbot.bot import respond_to
 from slackbot.bot import listen_to
 from datetime import datetime
+
+import os
 import random
 
 token = os.environ['SLACKAPP_API_TOKEN']
