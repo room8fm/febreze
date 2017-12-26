@@ -74,8 +74,15 @@ def show_subjects(message):
     message.reply(reply)
 
 @listen_to('お題リセット$')
-def reset_subjects(message):
+def reset_candidates(message):
     global pick_candidates
     pick_candidates = []
     message.react('ok_woman')
     message.reply('リセッシュ！')
+
+@listen_to('お題候補リセット$')
+def reset_subjects(message):
+    global subjects
+    subjects = {}
+    message.react('ok_woman')
+    message.reply('ファブリーズ！')
