@@ -15,7 +15,7 @@ sps = SlackPinnedStorage(token, identifier, channel)
 subjects = sps.get() or {}
 pick_candidates = []
 
-@listen_to('お題:(.*)')
+@listen_to('お題:(.*)$')
 def add_subjects(message, words):
     global subjects
 
@@ -42,7 +42,7 @@ def add_subjects(message, words):
     message.react('ok_woman')
     message.reply(reply)
 
-@listen_to('お題([0-9]+)?$')
+@listen_to('お題 ?([0-9]+)?$')
 def pick_subjects(message, number):
     global pick_candidates
     global subjects
@@ -61,7 +61,7 @@ def pick_subjects(message, number):
 
     message.reply(reply)
 
-@listen_to('お題候補')
+@listen_to('お題候補$')
 def show_subjects(message):
     global subjects
     message.react('ok_woman')
